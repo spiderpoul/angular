@@ -1,0 +1,166 @@
+body {
+    background-color: aliceblue;  
+}
+
+.form-pay form{
+    padding: 30px 0 0 0;
+    margin: 0;
+    opacity: 0.7;
+    transition: 1s
+}
+
+.form-pay form:hover{    
+    opacity: 1; 
+}
+
+.form-pay form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #cccccc;            
+}
+.form-pay label{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+.form-pay input, 
+.form-pay form select {
+    display: inline-block;
+    height: 24px;
+    margin: 0 0 10px 0;
+    padding: 2px 5px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    vertical-align: middle;
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+.form-pay form input[name="card-name-surname"] {
+    width: 200px;
+}
+
+
+.form-pay .form-group {
+    display: inline-block;
+}
+
+.form-pay .button-submit {
+    display: block;
+    height: 30px;     
+    margin: 0 auto;                
+    color: #ffffff;
+    background-color: darkseagreen;
+    border: none;
+    border-radius: 5px;
+    transition: 1s; 
+    text-align: center;
+}
+
+.form-pay .button-submit:hover {
+    background-color: cadetblue; 
+}
+
+.form-pay input[type="submit"] {
+    display: inline-block;
+    border: none; 
+    outline: none; 
+    -webkit-appearance: none;
+    background: none; 
+    min-width: 70px; 
+    color: #ffffff;
+}
+
+.secure-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url("img/secure-pay.png");
+    background-size: cover;
+}
+
+.form-pay h2 {
+    padding-bottom: 10px !important;
+    font-size: 20px !important;
+    text-align: center;
+    color: cornflowerblue;
+}
+
+.form-pay .card {
+    /*border: 1px solid #000;*/
+    border-radius: 5px;
+    width: 220px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+/*.form-pay input[name="card-number"]
+{
+    display: inline-block;
+    border: none; 
+    outline: none; 
+    -webkit-appearance: none;    
+}*/
+
+
+.form-pay .card-image {
+    width: 50px;
+    height: 30px;    
+    background-size: cover;
+    float: right;
+    border-radius: 5px;
+}
+.form-pay .visa {
+    background: url("img/visa.png");
+}
+
+.form-pay .a-express {
+    background: url("img/express.png");
+}
+
+.form-pay .mastercard {
+    background: url("img/mastercard.png");
+}
+
+.form-pay .discover {
+    background: url("img/discover.png");
+}
+
+.form-pay .prompt-mask {
+    width: 155px;
+    height: 111px;
+    margin: -100px 0 10px 180px; 
+    
+}
+
+.form-pay .prompt-aexp {
+    background: url("img/secure-aexp.png");
+    background-size: cover;
+}
+
+.form-pay .prompt-visa {
+    background: url("img/secure-visa.png");
+    background-size: cover;
+}
+
+.form-pay input.ng-invalid.ng-dirty {
+    border: 1px solid red;
+}
+
+.form-pay input.ng-dirty {
+    border: 1px solid blue;
+}
+
+.form-pay input.ng-valid {
+    border: 1px solid green;
+}
+
+.form-pay span.validation-inform {
+    display: block;
+    margin-bottom: 5px;
+    color: red;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Оплата банковской карты</title>
+        <link rel="stylesheet" href="style.css"> 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+        <script src="card-pay.js"></script>   
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="form-pay" ng-app="cardpayApp" ng-controller="cardpayController">
+                <form novalidate name="cardPay" id="card-pay">
+                    <h2>Оплата банковской карты</h2>
+                    <div class="form-group">
+                        <label for="paid-amount">Сумма оплаты:</label>
+                        <input type="text" name="paidAmount" ng-disabled="amountDisable" ng-model="card.amount" input-amount required>
+                    </div>
+                    <div class="form-group">
+                        <label for="crcy">Валюта:</label>
+                        <select name="crcy" ng-model="selectedcrcy" input-crcy ng-disabled="amountDisable" >
+                            <option value="RUR">RUR</option>
+                            <option value="USD">USD</option>
+                            <option value="EURO">EURO</option>
+                        </select>
+                    </div>    
+                    <input type="button" name="edit-amount" value="EDIT" ng-click="amountDisable = false;">
+                    <span class="validation-inform" ng-show="cardPay.paidAmount.$invalid && !cardPay.paidAmount.$pristine || submitClicked && cardPay.paidAmount.$invalid">Введите сумму оплаты</span>
+                    <label for="card-holder">Имя и фамилия на карте:</label>
+                    <input type="text" name="cardHolder" placeholder="IVAN IVANOV" ng-model="card.holder" input-letters required>                    
+                    <span class="validation-inform" ng-show="cardPay.cardHolder.$invalid && !cardPay.cardHolder.$pristine || submitClicked && cardPay.cardHolder.$invalid">Введите имя и фамилию держателя карты</span>
+                    <label for="card-number">Номер карты:</label>
+                    <div class="card">
+                        <input type="text" name="cardNumber" placeholder="1234 5678 1234 5678" ng-model="card.number" input-numbers required ng-minlength="19">
+                        <div class="card-image" ng-class="cardimage"></div>
+                    </div>                    
+                    <span class="validation-inform" ng-show="cardPay.cardNumber.$error.required && !cardPay.cardNumber.$pristine || submitClicked && cardPay.cardNumber.$invalid">Введите номер карты</span>    
+                    <label for="card-date-end">Дата окончания срока действия карты:</label>
+                    <input type="month" name="cardDateEnd" ng-model="card.dateEnd" required>
+                    <span class="validation-inform" ng-show="cardPay.cardDateEnd.$invalid && !cardPay.cardDateEnd.$pristine || submitClicked && cardPay.cardDateEnd.$invalid">Введите дату</span>
+                    <label for="card-secure-code">Код безопасности:</label>
+                    <input type="text" name="cardSecureCode" placeholder="123" ng-model="card.securecode" input-secure required minlength="3" maxlength="4">
+                    <span class="validation-inform" ng-show="cardPay.cardSecureCode.$invalid && !cardPay.cardSecureCode.$pristine || submitClicked && cardPay.cardSecureCode.$invalid">Введите код безопасности</span>
+                    <div class="prompt-mask" ng-class="prompt"></div>
+                    <div class="button-submit" style="width:{{submitWidth}}px;" ng-click="submitClicked=true">
+                        <input type="submit" name="submit" value="Оплатить {{card.amount}} {{crcy}}">              
+                        <div class="secure-icon"></div>   
+                    </div>                              
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
