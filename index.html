@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ACE in Action</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  
+  <script src="//code.angularjs.org/snapshot/angular.min.js"></script>
+  
+  <script src="/ace-builds-master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/ace-builds-master/src-noconflict/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+  
+  <script src="index.js"></script>
+  <script src="aceComponent.js"></script>
+  
+
+  
+</head>
+<body ng-app="aceApp">
+    <div ng-controller="MainCtrl as ctrl">
+      <ace-component themes="ctrl.themes"></ace-component>
+    </div>
+</body>
+</html>

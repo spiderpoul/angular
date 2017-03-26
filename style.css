@@ -1,0 +1,67 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.navigate {
+    width: 290px;  
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+#editor { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 305px;
+}
+
+
+.div-upload {
+    position: relative;
+    overflow: hidden;    
+}
+
+.div-upload .input-upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+/*Блоки навигации*/
+.navigate-block input,
+.navigate-block select,
+.navigate-block textarea
+{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.navigate-block label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.navigate-block {
+    width: 250px;
+}
+
+/*Select сниппетов*/
+.snippet-select {
+    min-width: 185px;
+}
+
+/*Блок с кнопками*/
+.buttons-block {
+    margin: 10px 0;    
+}
+
+.buttons-block input[type = "button"]{
+    display: inline-block;
+}

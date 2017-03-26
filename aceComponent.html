@@ -1,0 +1,67 @@
+<div class="navigate col-sm-4">
+   <div class="buttons-block">
+        <div class="div-upload btn btn-primary">
+            <span>Открыть</span>
+            <input id="input-upload" type="file" class="input-upload" fileread>                   
+        </div>  
+        <button class="btn btn-primary" ng-click="saveToFile()">Сохранить в файл</button>     
+    </div>    
+
+    <div class="navigate-block panel panel-default">
+        <div class="panel-heading">Оформление</div>  
+        <div class="panel-body">
+            <label for="theme">Тема</label>
+            
+            <select id="theme" ng-model="themeNameSelected" ng-options="themeName for themeName in $ctrl.themes" change-theme>  
+            </select>
+
+            <label>Шрифт</label>
+            <button class="btn btn-link" ng-click="decreaseFontSize()"><span class="glyphicon glyphicon-minus"></span></button>
+            <button class="btn btn-link" ng-click="increaseFontSize()"><span class="glyphicon glyphicon-plus"></span></button>                    
+
+        </div>                                
+    </div>
+    <div class="navigate-block panel panel-default">  
+        <div class="panel-heading">Установка горячих клавиш</div>                                
+        <div class="panel-body">
+           <div ng-show="(userHotKeys != null)">
+                <label for="user-hot-keys">Мои горячие клавиши</label>
+                <select id="user-hot-keys" ng-model="userHotKey" ng-options="userHotKey.item for userHotKey in userHotKeys" size="4"></select>
+            </div>
+            <label for="hot-key">Комбинация клавиш:</label>
+            <input id="hot-key" type="text" name="hot-key" ng-model="userHotKey.hotKey" placeholder="Например ctrl+s" ng-disabled="userHotKey == null">            
+            <label for="theme">Действие: {{userHotKey.execFunction.name}}</label>
+            <!--<select ng-model="userHotKey.execFunction" ng-options="execFunction.name for execFunction in execFunctions" ng-disabled="userHotKey == null">-->
+            </select>
+            <input class="btn btn-primary" type="button" value="Сохранить" ng-click="setHotKey(userHotKey.hotKey, userHotKey.execFunction)" ng-disabled="userHotKey == null">                                                         
+        </div>               
+    </div>
+    <div class="navigate-block panel panel-default">  
+        <div class="panel-heading">Установка подсказок кода</div>  
+        <div class="panel-body">
+            <div ng-show="(userSnippets.length !== 0)">
+                <label for="user-snippet">Мои подсказки кода</label>
+                <select class="snippet-select" id="user-snippet" ng-model="userSnippet" ng-options="userSnippet.name for userSnippet in userSnippets" size="4"></select>
+            </div>
+
+            <input class="btn btn-primary" type="button" value="Добавить новый сниппет" ng-click="addSnippet(userSnippets)">
+
+            <div ng-show="(userSnippets.length !== 0)">
+                <label for="snippet-name">Название:</label>
+                <input id="snippet-name" type="text" name="snippet-name" ng-model="userSnippet.name" placeholder="Введите название сниппета">            
+
+                <label for="snippet-trigger">Tab-триггер:</label>
+                <input id="snippet-trigger" type="text" name="snippet-tab" ng-model="userSnippet.trigger" placeholder="Введите tab-триггер">
+
+                <label for="theme">Содержание:</label>
+                <textarea rows="3" cols="25" ng-model="userSnippet.content"></textarea>
+                <div class="buttons-block">    
+                    <input class="btn btn-primary" type="button" value="Сохранить" ng-click="setSnippet(userSnippet)"> 
+                    <input class="btn btn-primary" type="button" value="Удалить" ng-click="removeSnippet(userSnippet)">
+                </div>    
+            </div>                   
+        </div>               
+    </div>
+</div>
+<div id="editor">
+</div>
